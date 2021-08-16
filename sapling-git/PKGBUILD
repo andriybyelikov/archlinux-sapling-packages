@@ -1,0 +1,33 @@
+# Maintainer: Andriy Byelikov <andriybyelikov@gmail.com>
+
+pkgname=sapling-git
+
+pkgver() {
+  cd "$srcdir/$pkgname"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+pkgver=r6.40f1e58
+pkgrel=1
+pkgdesc="A general-purpose compiler"
+arch=('x86_64')
+url="https://github.com/andriybyelikov/sapling"
+license=('custom:ZLIB')
+makedepends=(git libsapling)
+source=("$pkgname"::'git+https://github.com/andriybyelikov/sapling.git')
+sha256sums=('SKIP')
+
+build() {
+  cd "$pkgname"
+
+  autoreconf --install
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd "$pkgname"
+
+  make DESTDIR="$pkgdir/" install
+  install -Dm644 LICENSE "$pkgdir"/usr/share/licenses/$pkgname/LICENSE
+}
