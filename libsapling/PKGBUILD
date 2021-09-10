@@ -1,14 +1,14 @@
 # Maintainer: Andriy Byelikov <andriybyelikov@gmail.com>
 
 pkgname=libsapling
-pkgver=0.7.0
+pkgver=0.8.0
 pkgrel=1
 pkgdesc="Library for the sapling compiler and editor suite"
 arch=('x86_64')
 url="https://github.com/andriybyelikov/libsapling"
 license=('custom:ZLIB')
 source=("https://github.com/andriybyelikov/libsapling/archive/refs/tags/$pkgver.tar.gz")
-sha256sums=('8f88fa5a7f506e20b31529117c5444076be8a34c101e641ef1869768fbe170fc')
+sha256sums=('f64a67b7228df194e2f14bfa7a9cd64777e0cce4432854a43044808f9a086c3d')
 
 build() {
   cd "$pkgname-$pkgver"

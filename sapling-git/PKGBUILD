@@ -7,7 +7,7 @@ pkgver() {
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
-pkgver=r8.83c1e18
+pkgver=r16.7d95380
 pkgrel=1
 pkgdesc="A general-purpose compiler"
 arch=('x86_64')
